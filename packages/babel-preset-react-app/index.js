@@ -11,6 +11,10 @@
 var path = require('path');
 
 const plugins = [
+    // MUSEFIND-PATCH (add decorators)
+    require.resolve("babel-plugin-transform-decorators-legacy"),
+    // END MUSEFIND-PATCH
+
     // class { handleClick = () => { } }
     require.resolve('babel-plugin-transform-class-properties'),
     // { ...todo, completed: true }
@@ -57,10 +61,6 @@ if (env === 'development' || env === 'test') {
 if (env === 'test') {
   module.exports = {
     presets: [
-      // MUSEFIND-PATCH (add's decorators)
-      require.resolve('babel-preset-decorators-legacy'),
-      // END MUSEFIND-PATCH
-
       // ES features necessary for user's Node version
       [require('babel-preset-env').default, {
         targets: {
@@ -75,10 +75,6 @@ if (env === 'test') {
 } else {
   module.exports = {
     presets: [
-      // MUSEFIND-PATCH (add's decorators)
-      require.resolve('babel-preset-decorators-legacy'),
-      // END MUSEFIND-PATCH
-      
       // Latest stable ECMAScript features
       require.resolve('babel-preset-latest'),
       // JSX, Flow

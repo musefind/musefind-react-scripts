@@ -1,9 +1,11 @@
 {
   "name": "musefind-babel-preset-react-app",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Musefind babel presets fork.",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coldog/musefind-react-scripts.git"
@@ -12,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-plugin-transform-class-properties": "6.11.5",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-plugin-transform-object-rest-spread": "6.8.0",
     "babel-plugin-transform-react-constant-elements": "6.9.1",
     "babel-plugin-transform-react-jsx-self": "6.11.0",
@@ -21,7 +24,6 @@
     "babel-preset-env": "0.0.4",
     "babel-preset-latest": "6.14.0",
     "babel-preset-react": "6.11.1",
-    "babel-preset-decorators-legacy": "^1.0.0",
     "babel-runtime": "6.11.6"
   }
 }

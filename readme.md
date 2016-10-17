@@ -1,6 +1,6 @@
 # musefind-react-scripts
 
-#### Version: 0.6.4
+#### Version: 0.6.5
 
 Provides a fork of create-react-app react-scripts that ads the following features:
 
