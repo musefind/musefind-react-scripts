@@ -118,10 +118,8 @@ module.exports = {
         loader: 'babel',
         query: {
           // @remove-on-eject-begin
-          babelrc: false,
-          // MUSEFIND-PATCH (add's custom babel presets)
-          presets: [require.resolve('musefind-babel-preset-react-app')],
-          // END MUSEFIND-PATCH
+          babelrc: true,
+          presets: [require.resolve('babel-preset-react-app')],
           // @remove-on-eject-end
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
