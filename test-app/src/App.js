@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.scss';
 import { observer } from 'mobx-react';
 
-@observer
 class App extends Component {
   render() {
     const { UiStore } = this.props;
@@ -27,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default observer(App)
