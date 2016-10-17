@@ -140,6 +140,7 @@ module.exports = {
       // tags. If you use code splitting, however, any async bundles will still
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
+      // MUSEFIND-PATCH (add's scss)
       {
         test: /\.css$/,
         // "?-autoprefixer" disables autoprefixer in css-loader itself:
@@ -150,9 +151,10 @@ module.exports = {
         // Webpack 1.x uses Uglify plugin as a signal to minify *all* the assets
         // including CSS. This is confusing and will be removed in Webpack 2:
         // https://github.com/webpack/webpack/issues/283
-        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
+        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!resolve-url!sass!postcss') // MUSEFIND-PATCH css?-autoprefixer!postcss => css?-autoprefixer!resolve-url!sass!postcss
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
+      // END MUSEFIND-PATCH
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {

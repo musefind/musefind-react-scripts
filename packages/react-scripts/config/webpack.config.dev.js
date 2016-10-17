@@ -119,7 +119,9 @@ module.exports = {
         query: {
           // @remove-on-eject-begin
           babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
+          // MUSEFIND-PATCH (add's custom babel presets)
+          presets: [require.resolve('musefind-babel-preset-react-app')],
+          // END MUSEFIND-PATCH
           // @remove-on-eject-end
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
@@ -135,10 +137,12 @@ module.exports = {
       // "style" loader turns CSS into JS modules that inject <style> tags.
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
+      // MUSEFIND-PATCH (add's scss)
       {
-        test: /\.css$/,
-        loader: 'style!css!postcss'
+        test: /\.(css|scss)$/, // PATCH /\.css$/ => /\.(css|scss)$/
+        loader: 'style!css!resolve-url!sass!postcss' // PATCH style!css!postcss => style!css!resolve-url!sass!postcss
       },
+      // END MUSEFIND-PATCH
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {
@@ -171,7 +175,7 @@ module.exports = {
   // Point ESLint to our predefined config.
   eslint: {
     configFile: path.join(__dirname, '../.eslintrc'),
-    useEslintrc: false
+    useEslintrc: true // MUSEFIND-PATCH false => true
   },
   // @remove-on-eject-end
   // We use PostCSS for autoprefixing only.
