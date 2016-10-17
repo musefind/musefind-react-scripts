@@ -123,8 +123,8 @@ module.exports = {
         loader: 'babel',
         // @remove-on-eject-begin
         query: {
-          babelrc: true,
-          presets: [require.resolve('babel-preset-react-app')],
+          babelrc: false,
+          presets: [require.resolve('musefind-babel-preset-react-app')],
         },
         // @remove-on-eject-end
       },
