@@ -11,10 +11,6 @@
 var path = require('path');
 
 const plugins = [
-    // MUSEFIND-PATCH (add decorators)
-    require.resolve("babel-plugin-transform-decorators-legacy"),
-    // END MUSEFIND-PATCH
-
     // class { handleClick = () => { } }
     require.resolve('babel-plugin-transform-class-properties'),
     // { ...todo, completed: true }
