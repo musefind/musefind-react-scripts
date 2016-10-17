@@ -11,7 +11,7 @@ import './index.css';
 
 
 const UiStore = {
-  @observable abc: 'Welcome'
+  @observable message: 'Welcome'
 }
 
 ReactDOM.render(

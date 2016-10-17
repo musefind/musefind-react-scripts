@@ -1,6 +1,6 @@
 {
   "name": "musefind-babel-preset-react-app",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Musefind babel presets fork.",
   "main": "index.js",
   "files": ["index.js"],
