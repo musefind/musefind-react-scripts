@@ -142,7 +142,7 @@ module.exports = {
       // in the main CSS file.
       // MUSEFIND-PATCH (add's scss)
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/, // PATCH /\.css$/ => /\.(css|scss)$/
         // "?-autoprefixer" disables autoprefixer in css-loader itself:
         // https://github.com/webpack/css-loader/issues/281
         // We already have it thanks to postcss. We only pass this flag in
