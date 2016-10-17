@@ -1,6 +1,6 @@
 # musefind-react-scripts
 
-#### Version: 0.6.3
+#### Version: 0.6.4
 
 Provides a fork of create-react-app react-scripts that ads the following features:
 
@@ -14,9 +14,6 @@ Provides a fork of create-react-app react-scripts that ads the following feature
 ```bash
 create-react-app --scripts-version musefind-react-scripts APP_NAME
 ```
-
-There seems to be a bug the first time you start the app it will not build properly,
-just try changing something and it should be ok.
 
 #### Migrating an Existing Application
 

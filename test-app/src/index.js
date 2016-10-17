@@ -14,6 +14,12 @@ const UiStore = {
   @observable message: 'Welcome'
 }
 
+// test the observable stuff.
+setInterval(() => {
+  if (UiStore.message === 'Welcome')  UiStore.message = 'Bienvenue';
+  else UiStore.message = 'Welcome';
+}, 1000)
+
 ReactDOM.render(
   <App UiStore={UiStore} />,
   document.getElementById('root')
