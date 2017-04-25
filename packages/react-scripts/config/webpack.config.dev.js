@@ -175,7 +175,7 @@ module.exports = {
   // @remove-on-eject-begin
   // Point ESLint to our predefined config.
   eslint: {
-    configFile: path.join(__dirname, '../.eslintrc'),
+    configFile: path.join(__dirname, '/eslint-config-musefind/index.js'),
     useEslintrc: true // MUSEFIND-PATCH false => true
   },
   // @remove-on-eject-end
