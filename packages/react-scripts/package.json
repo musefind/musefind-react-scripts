@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "bundle-deps": "1.0.0",
+    "coffee-loader": "^0.7.3",
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
   },
