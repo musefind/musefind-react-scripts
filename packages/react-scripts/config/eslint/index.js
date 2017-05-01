@@ -21,6 +21,10 @@ module.exports = {
   plugins: [
     'class-property'
   ],
+  globals: {
+    window: true,
+    document: true
+  },
   parser: 'babel-eslint',
   rules: {
     'strict': 0,
