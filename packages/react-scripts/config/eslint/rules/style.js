@@ -55,9 +55,6 @@ module.exports = {
     // http://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': ['off', 'prefer-double'],
 
-    // enforces spacing between keys and values in object literal properties
-    'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-
     // require a space before & after certain keywords
     'keyword-spacing': ['error', {
       before: true,
@@ -123,12 +120,7 @@ module.exports = {
 
     // http://eslint.org/docs/rules/newline-before-return
     'newline-before-return': 'off',
-
-    // enforces new line after each method call in the chain to make it
-    // more readable and easy to maintain
-    // http://eslint.org/docs/rules/newline-per-chained-call
-    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 4 }],
-
+    
     // disallow use of the Array constructor
     'no-array-constructor': 'error',
 
@@ -244,9 +236,6 @@ module.exports = {
 
     // enforce operators to be placed before or after line breaks
     'operator-linebreak': 'off',
-
-    // enforce padding within blocks
-    'padded-blocks': ['error', 'never'],
 
     // require quotes around object literal property names
     // http://eslint.org/docs/rules/quote-props.html

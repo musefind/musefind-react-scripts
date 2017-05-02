@@ -175,6 +175,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
     'react/sort-comp': [2, {
       order: [
+        'state',
         'static-methods',
         'lifecycle',
         '/^on.+$/',

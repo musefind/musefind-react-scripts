@@ -35,9 +35,6 @@ module.exports = {
     // http://eslint.org/docs/rules/eqeqeq
     eqeqeq: ['error', 'allow-null'],
 
-    // make sure for-in loops have an if statement
-    'guard-for-in': 'error',
-
     // disallow the use of alert, confirm, and prompt
     'no-alert': 'warn',
 
@@ -126,15 +123,6 @@ module.exports = {
     // disallow creation of functions within loops
     'no-loop-func': 'error',
 
-    // disallow magic numbers
-    // http://eslint.org/docs/rules/no-magic-numbers
-    'no-magic-numbers': ['error', {
-      ignore: [0, 1, 2, 3, 4, -1, 100],
-      ignoreArrayIndexes: true,
-      enforceConst: true,
-      detectObjects: false,
-    }],
-
     // disallow use of multiple spaces
     'no-multi-spaces': 'error',
 
@@ -160,11 +148,6 @@ module.exports = {
     // disallow use of octal escape sequences in string literals, such as
     // var foo = 'Copyright \251';
     'no-octal-escape': 'error',
-
-    // disallow reassignment of function parameters
-    // disallow parameter object manipulation
-    // rule: http://eslint.org/docs/rules/no-param-reassign.html
-    'no-param-reassign': ['error', { props: true }],
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
