@@ -23,7 +23,13 @@ module.exports = {
   ],
   globals: {
     window: true,
-    document: true
+    document: true,
+    describe: true,
+    it: true,
+    expect: true,
+    jest: true,
+    beforeEach: true,
+    afterEach: true
   },
   parser: 'babel-eslint',
   rules: {

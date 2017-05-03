@@ -80,7 +80,8 @@ module.exports = {
     // http://eslint.org/docs/rules/max-len
     'max-len': ['error', 150, 2, {
       ignoreUrls: true,
-      ignoreComments: false
+      ignoreComments: false,
+      ignoreStrings: true
     }],
 
     // specify the max number of lines in a file
