@@ -54,7 +54,7 @@ module.exports = {
 
     // disallow empty functions, except for standalone funcs/arrows
     // http://eslint.org/docs/rules/no-empty-function
-    'no-empty-function': ['error', {
+    'no-empty-function': ['warn', {
       allow: [
         'arrowFunctions',
         'functions',
@@ -127,7 +127,7 @@ module.exports = {
     'no-multi-spaces': 'error',
 
     // disallow use of multiline strings
-    'no-multi-str': 'error',
+    'no-multi-str': 'warn',
 
     // disallow reassignments of native objects
     // TODO: deprecated in favor of no-global-assign

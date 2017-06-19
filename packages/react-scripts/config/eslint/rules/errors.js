@@ -49,7 +49,7 @@ module.exports = {
     }],
 
     // disallow unnecessary semicolons
-    'no-extra-semi': 'error',
+    'no-extra-semi': 'warn',
 
     // disallow overwriting functions written as function declarations
     'no-func-assign': 'error',
@@ -90,7 +90,7 @@ module.exports = {
     'no-unexpected-multiline': 'error',
 
     // disallow unreachable statements after a return, throw, continue, or break statement
-    'no-unreachable': 'error',
+    'no-unreachable': 'warn',
 
     // disallow return/throw/break/continue inside finally blocks
     // http://eslint.org/docs/rules/no-unsafe-finally

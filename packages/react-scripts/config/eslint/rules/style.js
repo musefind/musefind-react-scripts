@@ -23,7 +23,7 @@ module.exports = {
     'consistent-this': 'off',
 
     // enforce newline at the end of file, with no multiple empty lines
-    'eol-last': 'error',
+    'eol-last': 'warn',
 
     // enforce spacing between functions and their invocations
     // http://eslint.org/docs/rules/func-call-spacing
@@ -78,7 +78,7 @@ module.exports = {
 
     // specify the maximum length of a line in your program
     // http://eslint.org/docs/rules/max-len
-    'max-len': ['error', 150, 2, {
+    'max-len': ['warn', 150, 2, {
       ignoreUrls: true,
       ignoreComments: false,
       ignoreStrings: true
@@ -155,7 +155,7 @@ module.exports = {
     }],
 
     // disallow mixed spaces and tabs for indentation
-    'no-mixed-spaces-and-tabs': 'error',
+    'no-mixed-spaces-and-tabs': 'off',
 
     // disallow multiple empty lines and only one newline at the end
     'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
@@ -193,7 +193,7 @@ module.exports = {
     'no-ternary': 'off',
 
     // disallow trailing whitespace at the end of lines
-    'no-trailing-spaces': 'error',
+    'no-trailing-spaces': 'warn',
 
     // disallow dangling underscores in identifiers
     'no-underscore-dangle': ['error', { allowAfterThis: false }],
