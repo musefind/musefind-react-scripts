@@ -1,20 +1,13 @@
 {
   "name": "musefind-react-scripts",
-  "version": "2.2.22",
+  "version": "2.2.23",
   "description": "Configuration and scripts for Create React App.",
   "repository": "coldog/musefind-react-scripts",
   "license": "ISC",
   "engines": {
     "node": ">=4"
   },
-  "files": [
-    ".eslintrc",
-    "bin",
-    "config",
-    "scripts",
-    "template",
-    "utils"
-  ],
+  "files": [".eslintrc", "bin", "config", "scripts", "template", "utils"],
   "bin": {
     "react-scripts": "./bin/react-scripts.js"
   },
