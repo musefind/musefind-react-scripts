@@ -1,12 +1,10 @@
 module.exports = {
-  plugins: [
-    'jsx-a11y',
-    'react'
-  ],
+  plugins: ['jsx-a11y', 'react'],
   ecmaFeatures: {
     jsx: true
   },
   rules: {
+    'react/require-extension': 'off',
     // Enforce that anchors have content
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
     // TODO: enable, semver-major
@@ -30,8 +28,8 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 2,
 
     // Require <img> to have a non-empty `alt` prop, or role="presentation"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md
-    'jsx-a11y/img-has-alt': 2,
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
+    'jsx-a11y/alt-text': 2,
 
     // Prevent img alt text from containing redundant words like "image", "picture", or "photo"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md
@@ -39,7 +37,13 @@ module.exports = {
 
     // require that JSX labels use "htmlFor"
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
-    'jsx-a11y/label-has-for': [2, ['label']],
+    'jsx-a11y/label-has-for': [
+      2,
+      {
+        components: ['Label'],
+        allowChildren: false
+      }
+    ],
 
     // require that mouseover/out come with focus/blur, for keyboard-only users
     // TODO: evaluate
@@ -80,7 +84,12 @@ module.exports = {
 
     // ensure <hX> tags have content and are not aria-hidden
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
-    'jsx-a11y/heading-has-content': [2, ['']],
+    'jsx-a11y/heading-has-content': [
+      2,
+      {
+        components: ['MyHeading']
+      }
+    ],
 
     // require HTML elements to have a "lang" prop
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/html-has-lang.md
@@ -92,10 +101,15 @@ module.exports = {
 
     // prevent marquee elements
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-marquee.md
-    'jsx-a11y/no-marquee': 2,
+    'jsx-a11y/no-distracting-elements': [
+      2,
+      {
+        elements: ['marquee', 'blink']
+      }
+    ],
 
     // only allow <th> to have the "scope" attr
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
-    'jsx-a11y/scope': 2,
-  },
+    'jsx-a11y/scope': 2
+  }
 };

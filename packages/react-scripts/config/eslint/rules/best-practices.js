@@ -32,7 +32,7 @@ module.exports = {
     // http://eslint.org/docs/rules/eqeqeq
     eqeqeq: ['error', 'allow-null'],
 
-    // disallow the use of alert, confirm, and prompt
+    // disallow the use of alert, confirm, and inquirer
     'no-alert': 'warn',
 
     // disallow use of arguments.caller or arguments.callee
@@ -51,13 +51,12 @@ module.exports = {
 
     // disallow empty functions, except for standalone funcs/arrows
     // http://eslint.org/docs/rules/no-empty-function
-    'no-empty-function': ['warn', {
-      allow: [
-        'arrowFunctions',
-        'functions',
-        'methods',
-      ]
-    }],
+    'no-empty-function': [
+      'warn',
+      {
+        allow: ['arrowFunctions', 'functions', 'methods']
+      }
+    ],
 
     // disallow empty destructuring patterns
     // http://eslint.org/docs/rules/no-empty-pattern
@@ -91,12 +90,15 @@ module.exports = {
 
     // disallow implicit type conversions
     // http://eslint.org/docs/rules/no-implicit-coercion
-    'no-implicit-coercion': ['off', {
-      boolean: false,
-      number: true,
-      string: true,
-      allow: [],
-    }],
+    'no-implicit-coercion': [
+      'off',
+      {
+        boolean: false,
+        number: true,
+        string: true,
+        allow: []
+      }
+    ],
 
     // disallow var and named functions in global scope
     // http://eslint.org/docs/rules/no-implicit-globals
@@ -176,10 +178,13 @@ module.exports = {
     'no-unmodified-loop-condition': 'off',
 
     // disallow usage of expressions in statement position
-    'no-unused-expressions': ['error', {
-      allowShortCircuit: false,
-      allowTernary: false,
-    }],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: false,
+        allowTernary: false
+      }
+    ],
 
     // disallow unused labels
     // http://eslint.org/docs/rules/no-unused-labels

@@ -13,14 +13,13 @@ module.exports = {
   ].map(require.resolve),
   parserOptions: {
     ecmaFeatures: {
-      experimentalObjectRestSpread: true
+      experimentalObjectRestSpread: true,
+      legacyDecorators: true
     },
     ecmaVersion: 7,
     sourceType: 'module'
   },
-  plugins: [
-    'class-property'
-  ],
+  plugins: ['class-property'],
   globals: {
     window: true,
     document: true,
@@ -33,9 +32,9 @@ module.exports = {
   },
   parser: 'babel-eslint',
   rules: {
-    'strict': 0,
+    strict: 0,
     'react/jsx-no-bind': 0,
-    'indent': 0,
+    indent: 0,
     'react/prefer-es6-class': 0,
     'react/jsx-uses-react': 2,
     'react/jsx-uses-vars': 2,

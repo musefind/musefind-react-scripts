@@ -10,17 +10,14 @@
 var createJestConfig = require('../utils/createJestConfig');
 var fs = require('fs');
 var path = require('path');
-var prompt = require('react-dev-utils/prompt');
+var inquirer = require('react-dev-utils/inquirer');
 var rimrafSync = require('rimraf').sync;
 var spawnSync = require('cross-spawn').sync;
 var chalk = require('chalk');
 var green = chalk.green;
 var cyan = chalk.cyan;
 
-prompt(
-  'Are you sure you want to eject? This action is permanent.',
-  false
-).then(shouldEject => {
+inquirer('Are you sure you want to eject? This action is permanent.', false).then(shouldEject => {
   if (!shouldEject) {
     console.log(cyan('Close one! Eject aborted.'));
     process.exit(1);
@@ -47,10 +44,12 @@ prompt(
   files.forEach(function(file) {
     if (fs.existsSync(path.join(appPath, file))) {
       console.error(
-        '`' + file + '` already exists in your app folder. We cannot ' +
-        'continue as you would lose all the changes in that file or directory. ' +
-        'Please delete it (maybe make a copy for backup) and run this ' +
-        'command again.'
+        '`' +
+          file +
+          '` already exists in your app folder. We cannot ' +
+          'continue as you would lose all the changes in that file or directory. ' +
+          'Please delete it (maybe make a copy for backup) and run this ' +
+          'command again.'
       );
       process.exit(1);
     }
@@ -65,13 +64,14 @@ prompt(
   console.log(cyan('Copying files into ' + appPath));
   files.forEach(function(file) {
     console.log('  Adding ' + cyan(file) + ' to the project');
-    var content = fs
-      .readFileSync(path.join(ownPath, file), 'utf8')
-      // Remove dead code from .js files on eject
-      .replace(/\/\/ @remove-on-eject-begin([\s\S]*?)\/\/ @remove-on-eject-end/mg, '')
-      // Remove dead code from .applescript files on eject
-      .replace(/-- @remove-on-eject-begin([\s\S]*?)-- @remove-on-eject-end/mg, '')
-      .trim() + '\n';
+    var content =
+      fs
+        .readFileSync(path.join(ownPath, file), 'utf8')
+        // Remove dead code from .js files on eject
+        .replace(/\/\/ @remove-on-eject-begin([\s\S]*?)\/\/ @remove-on-eject-end/gm, '')
+        // Remove dead code from .applescript files on eject
+        .replace(/-- @remove-on-eject-begin([\s\S]*?)-- @remove-on-eject-end/gm, '')
+        .trim() + '\n';
     fs.writeFileSync(path.join(appPath, file), content);
   });
   console.log();
@@ -86,7 +86,7 @@ prompt(
   console.log('  Removing ' + cyan(ownPackageName) + ' from devDependencies');
   delete appPackage.devDependencies[ownPackageName];
 
-  Object.keys(ownPackage.dependencies).forEach(function (key) {
+  Object.keys(ownPackage.dependencies).forEach(function(key) {
     // For some reason optionalDependencies end up in dependencies after install
     if (ownPackage.optionalDependencies[key]) {
       return;
@@ -97,14 +97,16 @@ prompt(
   console.log();
   console.log(cyan('Updating the scripts'));
   delete appPackage.scripts['eject'];
-  Object.keys(appPackage.scripts).forEach(function (key) {
-    appPackage.scripts[key] = appPackage.scripts[key]
-      .replace(/react-scripts (\w+)/g, 'node scripts/$1.js');
+  Object.keys(appPackage.scripts).forEach(function(key) {
+    appPackage.scripts[key] = appPackage.scripts[key].replace(
+      /react-scripts (\w+)/g,
+      'node scripts/$1.js'
+    );
     console.log(
       '  Replacing ' +
-      cyan('"react-scripts ' + key + '"') +
-      ' with ' +
-      cyan('"node scripts/' + key + '.js"')
+        cyan('"react-scripts ' + key + '"') +
+        ' with ' +
+        cyan('"node scripts/' + key + '.js"')
     );
   });
 
@@ -112,11 +114,7 @@ prompt(
   console.log(cyan('Configuring package.json'));
   // Add Jest config
   console.log('  Adding ' + cyan('Jest') + ' configuration');
-  appPackage.jest = createJestConfig(
-    filePath => path.join('<rootDir>', filePath),
-    null,
-    true
-  );
+  appPackage.jest = createJestConfig(filePath => path.join('<rootDir>', filePath), null, true);
 
   // Add Babel config
 
@@ -124,22 +122,19 @@ prompt(
   appPackage.babel = babelConfig;
 
   // Add ESlint config
-  console.log('  Adding ' + cyan('ESLint') +' configuration');
+  console.log('  Adding ' + cyan('ESLint') + ' configuration');
   appPackage.eslintConfig = eslintConfig;
 
-  fs.writeFileSync(
-    path.join(appPath, 'package.json'),
-    JSON.stringify(appPackage, null, 2)
-  );
+  fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2));
   console.log();
 
   console.log(cyan('Running npm install...'));
   rimrafSync(ownPath);
-  spawnSync('npm', ['install'], {stdio: 'inherit'});
+  spawnSync('npm', ['install'], { stdio: 'inherit' });
   console.log(green('Ejected successfully!'));
   console.log();
 
   console.log(green('Please consider sharing why you ejected in this survey:'));
   console.log(green('  http://goo.gl/forms/Bi6CZjk1EqsdelXk1'));
-  console.log()
-})
+  console.log();
+});
