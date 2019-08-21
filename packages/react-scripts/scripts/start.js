@@ -259,7 +259,7 @@ function runDevServer(host, port, protocol) {
   addMiddleware(devServer);
 
   // Launch WebpackDevServer.
-  devServer.listen(port, (err, result) => {
+  devServer.listen(port, host, (err, result) => {
     if (err) {
       return console.log(err);
     }

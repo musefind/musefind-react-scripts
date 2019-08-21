@@ -8,6 +8,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var InterpolateHtmlPlugin = require('interpolate-html-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 
 var homepagePath = require(paths.appPackageJson).homepage;
 var homepagePathname = homepagePath ? url.parse(homepagePath).pathname : '/';
@@ -38,6 +40,7 @@ module.exports = {
     paths.appIndexJs
   ],
   bail: true,
+  mode: 'development',
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: 'eval',
@@ -83,6 +86,7 @@ module.exports = {
             options: {
               babelrc: false,
               sourceType: 'unambiguous',
+              cacheDirectory: true,
               presets: [
                 // Latest stable ECMAScript features
                 require.resolve('@babel/preset-env', { modules: false }),
@@ -102,7 +106,8 @@ module.exports = {
                 [require.resolve('@babel/plugin-proposal-decorators'), { legacy: true }],
                 [require.resolve('@babel/plugin-proposal-class-properties'), { loose: true }],
                 [require.resolve('@babel/plugin-transform-modules-commonjs')],
-                [require.resolve('@babel/plugin-transform-computed-properties')]
+                [require.resolve('@babel/plugin-transform-computed-properties')],
+                [require.resolve('react-hot-loader/babel')]
               ]
             }
           }
@@ -155,6 +160,9 @@ module.exports = {
     // This is the URL that app is served from. We use "/" in development.
     publicPath: publicPath
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
@@ -178,6 +186,17 @@ module.exports = {
         minifyURLs: true
       }
     }),
+    // This is necessary to emit hot updates (currently CSS only):
+    new webpack.HotModuleReplacementPlugin(),
+    // Watcher doesn't work well if you mistype casing in a path so we use
+    // a plugin that prints an error when you attempt to do this.
+    // See https://github.com/facebookincubator/create-react-app/issues/240
+    new CaseSensitivePathsPlugin(),
+    // If you require a missing module and then `npm install` it, you still have
+    // to restart the development server for Webpack to discover it. This plugin
+    // makes the discovery automatic so you don't have to restart.
+    // See https://github.com/facebookincubator/create-react-app/issues/186
+    new WatchMissingNodeModulesPlugin(paths.appNodeModules),
     new webpack.DefinePlugin(env),
     new InterpolateHtmlPlugin({
       PUBLIC_URL: publicUrl
