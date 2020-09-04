@@ -52,7 +52,7 @@
     "json-loader": "0.5.4",
     "mini-css-extract-plugin": "^0.8.0",
     "musefind-babel-preset-react": "1.0.10",
-    "node-sass": "^3.10.1",
+    "node-sass": "^4.13.1",
     "object-assign": "4.1.0",
     "path-exists": "2.1.0",
     "postcss-loader": "0.13.0",
