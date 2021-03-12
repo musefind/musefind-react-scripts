@@ -57,7 +57,7 @@
     "path-exists": "2.1.0",
     "postcss-loader": "0.13.0",
     "promise": "7.1.1",
-    "react-dev-utils": "^9.0.2",
+    "react-dev-utils": "^11.0.4",
     "recursive-readdir": "2.1.0",
     "resolve-url-loader": "^1.6.0",
     "react-hot-loader": "^4.12.11",
